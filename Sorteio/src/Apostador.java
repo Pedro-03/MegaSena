@@ -8,7 +8,6 @@ public class Apostador {
     public Apostador(String nome, String cpf, List<Integer> numApostados){
         this.nome = nome;
         this.cpf = cpf;
-        this.numApostados = numApostados;
         numApostados = new ArrayList<>();
         this.numApostados = numApostados;
     }
@@ -39,7 +38,7 @@ public class Apostador {
 
     @Override
     public String toString() {
-        return "Apostador [nome=" + nome + ", cpf=" + cpf + ", numApostados=" + numApostados + "]";
+        return "Apostador [ nome = " + nome + ", cpf = " + cpf + ", numApostados = " + numApostados + " ]";
     }
 
     
