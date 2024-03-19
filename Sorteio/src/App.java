@@ -8,7 +8,15 @@ public class App {
        
         try {
             Scanner in = new Scanner(System.in);
-        
+            System.out.println("MENU");
+            System.out.println("================================================");
+            System.out.println("digite 1 para começar as apostas");
+            System.out.println("digite 2 para finalizar as apostas");
+            System.out.println("digite 3 para sortear os numeros");
+            System.out.println("================================================");
+            System.out.println("digite 0 para sair");
+
+            
             System.out.println("Digite seu nome:");
             String nome = in.nextLine();
             
