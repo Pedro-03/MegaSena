@@ -31,11 +31,15 @@ public class App {
                         gerenciador.cadastraApostador(listaAp);
                         break;
                     case 2: 
-
+                        gerenciador.fazerApostas(listaAp);
                         break;
 
                     case 3:
                     
+                        break;
+                    
+                    case 0: 
+                        cadastro = false;
                         break;
                     default:
                         break;

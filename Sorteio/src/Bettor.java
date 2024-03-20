@@ -37,7 +37,7 @@ public class Bettor {
 
     @Override
     public String toString() {
-        return "Apostador [ nome = " + nome + ", cpf = " + cpf + " ]";
+        return "Apostador: [ Nome: " + nome + ", Cpf: " + cpf + " ]";
     
     }
 }

@@ -7,6 +7,8 @@ public class GerenciadorAposta {
     }
 
     int apostaID = 1000;
+    List<Aposta> apostas = new ArrayList<Aposta>();
+    List<Bettor> bettores = new ArrayList<Bettor>();
 
     public void cadastraApostador(ListaApostadores apostadores) {
         try {
@@ -20,6 +22,7 @@ public class GerenciadorAposta {
             Bettor apostador = new Bettor(nome, cpf, null);
             apostadores.addApostador(apostador);
             System.out.println("Apostador cadastrado!");
+            System.out.println(apostador);
 
         } catch (Exception e) {
             System.out.println("Erro: Algo errado");
@@ -47,17 +50,22 @@ public class GerenciadorAposta {
             }
             else{
                 System.out.println("Apostador encontrado!");
+                bettor.toString();
                 System.out.println("Faça suas apostas:");
                 System.out.println("Somente números entre 1 a 50");
                 
                 Aposta aposta;
                 int numeroDigitado = 0;
-                while (numeroDigitado < 4) {
+                while (numeroDigitado < 5) {
                     int numero = in.nextInt();
                     List<Integer> num = new ArrayList<>();
                     num.add(numero);
-                    aposta = new Aposta(numero, bettor, num);
+                    aposta = new Aposta(apostaID, bettor, num);
+                    numeroDigitado++;
+                    
                 }
+                apostaID++;
+                
             } 
         } catch (Exception e) {
             // TODO: handle exception
