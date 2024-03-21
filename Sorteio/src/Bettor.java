@@ -51,6 +51,28 @@ public class Bettor {
         betList.add(aposta);
     }
 
+    public boolean validarCPF(String cpf) {     
+        if (cpf.length() != 14 ||
+            cpf.charAt(3) != '.' ||
+            cpf.charAt(7) != '.' ||
+            cpf.charAt(11) != '-') {
+            System.out.println("Formato inválido. Digite novamente.");
+            return false;
+        }
+
+        for (int i = 0; i < cpf.length(); i++) {
+            if (i == 3 || i == 7 || i == 11) {
+                continue; // Pular os pontos e traço
+            }
+            if (!Character.isDigit(cpf.charAt(i))) {
+                System.out.println("CPF deve conter apenas dígitos. Digite novamente.");
+                return false;
+            }
+        }
+
+        return true;
+    }
+
 
     @Override
     public String toString() {

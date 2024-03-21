@@ -13,18 +13,26 @@ public class BetManager {
 
     public void registerBettor(BettorsList bettorsList) {
             try {
-                Scanner in = new Scanner(System.in);
-                System.out.println("Cadastro de conta");
-                System.out.println("================================================================");
-                System.out.println("Digite o nome do apostador: ");
-                String nome = in.nextLine();
-                System.out.println("Digite o cpf do apostador: ");
-                String cpf = in.nextLine();
-                Bettor Bettor = new Bettor(nome, cpf, null);
-                bettorsList.addBettor(Bettor);
-                System.out.println("Apostador cadastrado!");
-                System.out.println(Bettor);
-
+                boolean cadastrando = true;
+                while(cadastrando == true) {
+                    Bettor bettor = new Bettor(null, null, null);
+                    Scanner in = new Scanner(System.in);
+                    System.out.println("Cadastro de conta");
+                    System.out.println("================================================================");
+                    System.out.println("Digite o nome do apostador: ");
+                    String nome = in.nextLine();
+                    System.out.println("Digite o cpf do apostador: ");
+                    String cpf = in.nextLine();
+                    boolean verifica = bettor.validarCPF(cpf);
+                    if(verifica == false) {
+                        cadastrando = false;
+                        return;
+                    }
+                    Bettor Bettor = new Bettor(nome, cpf, null);
+                    bettorsList.addBettor(Bettor);
+                    System.out.println("Apostador cadastrado!");
+                    System.out.println(Bettor);
+                }
             } catch (Exception e) {
                     System.out.println("Ocorreu um erro ao processar o apostador.");
             }
