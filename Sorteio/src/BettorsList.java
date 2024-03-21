@@ -1,27 +1,26 @@
 import java.util.*;
 
-public class ListaApostadores {
-    private List<Bettor> apostadores;
+public class BettorsList {
+    private List<Bettor> listaDeApostadores;
 
-
-    public ListaApostadores(){
+    public BettorsList(){
 
     }
 
-    public List<Bettor> getApostadores() {
-        return apostadores;
+    public List<Bettor> getBettors() {
+        return listaDeApostadores;
     }
 
-    public void addApostador(Bettor apostador) {
-        if ( apostadores == null) {
-            apostadores = new ArrayList<>();
+    public void addBettor(Bettor apostador) {
+        if ( listaDeApostadores == null) {
+            listaDeApostadores = new ArrayList<>();
         }
-        apostadores.add(apostador);
+        listaDeApostadores.add(apostador);
     
     }
 
     public Bettor getBettorByCpf(String cpf) {
-        for (Bettor a : apostadores) {
+        for (Bettor a : listaDeApostadores) {
             if (a.getCpf().equals(cpf)) {
                 return a;
             }
@@ -29,14 +28,16 @@ public class ListaApostadores {
         return null;
     }
 
-    public void addAposta(Aposta aposta, Bettor b, int apostaID) {
+     
+
+    public void addBet(Bet aposta, Bettor b, int apostaID) {
         int numeroDigitado = 0;
         Scanner in = new Scanner(System.in);
                 while (numeroDigitado < 5) {
                     int numero = in.nextInt();
                     List<Integer> num = new ArrayList<>();
                     num.add(numero);
-                    aposta = new Aposta(apostaID, b, num);
+                    aposta = new Bet(apostaID, b, num);
                     numeroDigitado++;
                     
                 }

@@ -1,43 +1,60 @@
 import java.util.*;
 
 public class Bettor {
-    private String nome;
+    private String name;
     private String cpf;
-    List<Integer> numerosApostados;
+    List<Bet> Betlist;
      
-    public Bettor(String nome, String cpf, List<Integer> numerosApostados) {
-        this.nome = nome;
+    public Bettor(String name, String cpf, List<Bet> Betlist) {
+        this.name = name;
         this.cpf = cpf;
-        this.numerosApostados = numerosApostados;
+        this.Betlist = Betlist;
     }
 
-    public String getNome() {
-        return nome;
+     public boolean isBetRepeted(Bet bet) {
+      for(Bet b : Betlist){
+        if (b.equals(bet)){
+            return true;
+        }
+      }
+      return false;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public String getCpf() {
         return cpf;
     }
 
-    public List<Integer> getNumerosApostados() {
-        return numerosApostados;
+    public List<Bet> getApostas() {
+        return Betlist;
     }
     
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 
-    public void setNumerosApostados(List<Integer> numerosApostados) {
-        this.numerosApostados = numerosApostados;
+    public void setApostas(List<Bet> Betlist) {
+        this.Betlist = Betlist;
     }
+
+    public void addAposta(Bet aposta) {
+        if (Betlist == null) {
+             Betlist = new ArrayList<>();
+        }
+        Betlist.add(aposta);
+    }
+
 
     @Override
     public String toString() {
-        return "Apostador: [ Nome: " + nome + ", Cpf: " + cpf + " ]";
+        return "Apostador: [ Name: " + name + ", Cpf: " + cpf + " ]";
     
     }
 }

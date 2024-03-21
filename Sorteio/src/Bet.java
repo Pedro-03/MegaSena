@@ -1,14 +1,13 @@
 import java.util.*;
 
-public class Aposta {
+public class Bet {
     private int id;
     private Bettor apostador;
     private List<Integer> numApostados;
 
-    public Aposta(int id, Bettor apostador, List<Integer> numApostados){
+    public Bet(int id, Bettor apostador, List<Integer> numApostados){
         this.id = id;
         this.apostador = apostador;
-        numApostados = new ArrayList<>();
         this.numApostados = numApostados;
     }
 
@@ -41,5 +40,4 @@ public class Aposta {
     public String toString() {
         return "Apostador [ id = " + id + ", numApostados = " + numApostados + " ]";
     }
-    
 }

@@ -1,12 +1,12 @@
 import java.util.*;
 
-public class App {
+public class Main {
     public static void main(String[] args) throws Exception {
         
-        List<Aposta> apostadores = new ArrayList<>();
+        List<Bet> apostadores = new ArrayList<>();
         List<Integer> numerosApostados = new ArrayList<>();
-        ListaApostadores listaAp = new ListaApostadores();
-        GerenciadorAposta gerenciador = new GerenciadorAposta();
+        BettorsList listaAp = new BettorsList();
+        BetManager gerenciador = new BetManager();
         
         boolean cadastro = true;
 
@@ -20,6 +20,7 @@ public class App {
                 System.out.println("Digite 1 cadastrar usuário");
                 System.out.println("digite 2 para começar as apostas");
                 System.out.println("digite 3 para sortear os numeros");
+                System.out.println("digite 4 para ver todas suas apostas");
                 System.out.println("================================================================");
                 System.out.println("digite 0 para sair");
             
@@ -28,14 +29,13 @@ public class App {
                 
                 switch (op) {
                     case 1: 
-                        gerenciador.cadastraApostador(listaAp);
+                        gerenciador.registerBettor(listaAp);
                         break;
                     case 2: 
-                        gerenciador.fazerApostas(listaAp);
+                        gerenciador.makeBets(listaAp);
                         break;
-
                     case 3:
-                    
+                        
                         break;
                     
                     case 0: 
