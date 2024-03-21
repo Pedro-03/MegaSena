@@ -28,8 +28,6 @@ public class BettorsList {
         return null;
     }
 
-     
-
     public void addBet(Bet aposta, Bettor b, int apostaID) {
         int numeroDigitado = 0;
         Scanner in = new Scanner(System.in);
@@ -39,7 +37,6 @@ public class BettorsList {
                     num.add(numero);
                     aposta = new Bet(apostaID, b, num);
                     numeroDigitado++;
-                    
                 }
     }
 

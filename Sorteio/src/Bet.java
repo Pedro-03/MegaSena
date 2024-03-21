@@ -11,10 +11,21 @@ public class Bet {
         this.numApostados = numApostados;
     }
 
+    public int randomBet(List<Integer> numSorteados){
+        List<Integer> sortados = numSorteados;
+
+        Random rand = new Random();
+        int num = rand.nextInt(51);
+        if(!numSorteados.contains(num)){
+            sortados.add(num);
+        }
+        return numApostados.get(num); 
+    }
+
+
     public List<Integer> getNumApostados() {
         return numApostados;
     }
-
     public int getId() {
         return id;
     }
