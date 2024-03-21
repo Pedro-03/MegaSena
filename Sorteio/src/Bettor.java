@@ -3,16 +3,16 @@ import java.util.*;
 public class Bettor {
     private String name;
     private String cpf;
-    List<Bet> Betlist;
+    List<Bet> betList;
      
-    public Bettor(String name, String cpf, List<Bet> Betlist) {
+    public Bettor(String name, String cpf, List<Bet> betList) {
         this.name = name;
         this.cpf = cpf;
-        this.Betlist = Betlist;
+        this.betList = betList;
     }
 
      public boolean isBetRepeted(Bet bet) {
-      for(Bet b : Betlist){
+      for(Bet b : betList){
         if (b.equals(bet)){
             return true;
         }
@@ -29,7 +29,7 @@ public class Bettor {
     }
 
     public List<Bet> getApostas() {
-        return Betlist;
+        return betList;
     }
     
     public void setName(String name) {
@@ -40,21 +40,21 @@ public class Bettor {
         this.cpf = cpf;
     }
 
-    public void setApostas(List<Bet> Betlist) {
-        this.Betlist = Betlist;
+    public void setApostas(List<Bet> betList) {
+        this.betList = betList;
     }
 
     public void addAposta(Bet aposta) {
-        if (Betlist == null) {
-             Betlist = new ArrayList<>();
+        if (betList == null) {
+             betList = new ArrayList<>();
         }
-        Betlist.add(aposta);
+        betList.add(aposta);
     }
 
 
     @Override
     public String toString() {
-        return "Apostador: [ Name: " + name + ", Cpf: " + cpf + " ]";
+        return "Apostador: [ Name: " + name + ", Cpf: " + cpf + "Apostas: " + betList + " ]";
     
     }
 }

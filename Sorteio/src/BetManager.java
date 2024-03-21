@@ -30,51 +30,37 @@ public class BetManager {
             }
         }
 
-    public void makeBets(BettorsList bettorsList) {
-        try {
-            Scanner in = new Scanner(System.in);
-            System.out.println("Fazer aposta");
-            System.out.println("================================================================");
-            System.out.println("Procurar apostador");
-            System.out.println("Digite seu cpf: ");
-            String cpf = in.nextLine();
-            Bettor newBettor = bettorsList.getBettorByCpf(cpf);
-            if (newBettor == null) {
-                System.out.println("Nenhum apostador encontrado!");
-                return; 
-            } 
+        public void makeBets(BettorsList bettorsList) {
+            try {
+                Scanner in = new Scanner(System.in);
+                System.out.println("Fazer aposta");
+                System.out.println("================================================================");
+                System.out.println("Procurar apostador");
+                System.out.println("Digite seu cpf: ");
+                String cpf = in.nextLine();
+                Bettor newBettor = bettorsList.getBettorByCpf(cpf);
+                if (newBettor == null) {
+                    System.out.println("Nenhum apostador encontrado!");
+                    return; 
+                } 
                 System.out.println("Apostador encontrado!");
                 boolean betting = true;
-
+        
                 while (betting) {
-                    System.out.println("Se deseja fazer sua posta digite 1 se quiser randomicamente 2:");
-                    int opcao = in.nextInt();
-                    if (opcao == 2){
-
-                    }
-                    
-                    int apostaDigitada = 0;
                     List<Integer> newAposta = new ArrayList<>();
-
+                    Bet newBet = null;
                     
+                    System.out.println("Deseja fazer uma aposta aleatória? (Y/N)");
+                    String opcao = in.nextLine().toUpperCase();
 
-                    // while (apostaDigitada < 5) {
-                    //     int numeroParaAposta = in.nextInt();
-                    //     newAposta.add(numeroParaAposta);
-                    //     apostaDigitada++;
-                    // }
-
-                    in.nextLine();
+                    newBet = bettorsList.fazerApostacomSurpresinha(opcao, apostaID, newBettor);
+        
+                    //in.nextLine(); 
+                    
                     apostaID++;
-                    Bet newBet = new Bet(apostaID, newBettor, newAposta);
                     newBettor.addAposta(newBet);
-
-                    if (newBettor.isBetRepeted(newBet) == true){
-                        System.out.println("bet repetida");
-                        break;
-                    }
-                
-                    System.out.println("Deseja continuar betting? (Y/N)");
+                    
+                    System.out.println("Deseja continuar apostando? (Y/N)");
                     String choice = in.nextLine().toUpperCase();
                     switch (choice) {
                         case "Y":

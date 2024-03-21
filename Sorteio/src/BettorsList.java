@@ -40,4 +40,60 @@ public class BettorsList {
                 }
     }
 
+    public List<Integer> fazerSurpresinha() {
+        List<Integer> surpresinha = new ArrayList<>();
+        Random random = new Random();
+        while (surpresinha.size() < 5) {
+            int numeroSorteado = random.nextInt(50) + 1;
+            if (!surpresinha.contains(numeroSorteado)) {
+                surpresinha.add(numeroSorteado);
+            }
+        }
+        return surpresinha;
+    }
+
+    public Bet fazerApostacomSurpresinha(String opcao, int apostaID, Bettor newBettor) {
+        Scanner in = new Scanner(System.in);
+        List<Integer> newAposta = new ArrayList<>();
+        Bet newBet = null;
+
+        switch (opcao) {
+            case "N":
+                System.out.println("Faça sua aposta: ");
+                for (int i = 0; i < 5; i++) {
+                    System.out.print("Número " + (i + 1) + ": ");
+                    int numero = in.nextInt();
+                    newAposta.add(numero);
+                }
+                newBet = new Bet(apostaID, newBettor, newAposta);
+                break;
+            case "Y":
+                boolean a = true;
+                while(a == true){
+                    newAposta = fazerSurpresinha();
+                    newBet = new Bet(apostaID, newBettor, newAposta);
+                    System.out.println("Números sorteados: " + newAposta);
+                    System.out.println("Deseja outros números? (Y/N)");
+                    String choice = in.nextLine().toUpperCase();
+                    switch (choice) {
+                        case "Y":
+                            a = true;
+                            break;
+                        case "N":
+                            a = false;
+                            break;
+                        default:
+                            break;
+                    }
+                }
+                break;
+            default:
+                System.out.println("Opção inválida!");
+                break;
+        }
+
+        return newBet;
+    }
+
+
 }
